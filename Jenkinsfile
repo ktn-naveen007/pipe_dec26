@@ -5,10 +5,10 @@ pipeline {
         
     stages {
 
-            stage('Back-end') {
             agent {
                 docker{image 'ubuntu:15.04'}
             }
+             
         stage('compile') { 
             steps {
                  bat """
