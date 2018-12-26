@@ -1,7 +1,8 @@
 pipeline {
     agent { 
         node { label 'Node_Ub' } 
-        agent{image 'ubuntu:15.04'}
+        agent{
+            docker{image 'ubuntu:15.04'}
         }
     stages {
         stage('compile') { 
