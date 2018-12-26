@@ -4,11 +4,14 @@ pipeline {
                  
         
     stages {
-
+stage('Back-end'){
             agent {
                 docker{image 'ubuntu:15.04'}
             }
-             
+            steps {
+                bat 'mvn --version'
+            }
+   }
         stage('compile') { 
             steps {
                  bat """
