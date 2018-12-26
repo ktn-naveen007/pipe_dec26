@@ -9,12 +9,12 @@ stage('Back-end'){
                 docker{image 'ubuntu:15.04'}
             }
             steps {
-                bat 'mvn --version'
+                sh 'mvn --version'
             }
    }
         stage('compile') { 
             steps {
-                 bat """
+                 sh """
     					mvn compile -Dmaven.skipTests=true
     				"""
             }
@@ -22,7 +22,7 @@ stage('Back-end'){
         
         stage('Deploy') { 
             steps {
-                 bat """
+                 sh """
         					mvn package
         				"""
     }
