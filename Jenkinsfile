@@ -1,7 +1,8 @@
 pipeline {
+
+    agent{ label 'Node_Ub' } 
     agent { 
-        node { label 'Node_Ub' } 
-        
+         
             docker{image 'ubuntu:15.04'}
         }
     stages {
