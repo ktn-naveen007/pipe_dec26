@@ -1,7 +1,7 @@
 pipeline {
-    //agent { node { label 'master' } }
-    agent{
-        docker {image 'openjdk:8-jdk-alpine'}
+    agent { 
+        node { label 'Node_Ub' } 
+        agent{image 'ubuntu:15.04'}
         }
     stages {
         stage('compile') { 
