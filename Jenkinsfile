@@ -1,17 +1,23 @@
 pipeline {
 
-    agent   { label 'Node_Ub' }                                                                            
+    agent {
+            
+        docker{
+            image 'maven:3-alpine'
+            label 'Node_Ub'
+        }
+    }                                                                          
                  
         
     stages {
-stage('Back-end'){
-            agent {
-                docker{image 'ubuntu:15.04'}
-            }
+
+        stage('Back-end'){
+           
             steps {
                 sh 'mvn --version'
             }
-   }
+        }
+        
         stage('compile') { 
             steps {
                  sh """
@@ -23,9 +29,9 @@ stage('Back-end'){
         stage('Deploy') { 
             steps {
                  sh """
-        					mvn package
-        				"""
-    }
+        				mvn package
+        			"""
+            }
         }
     }
 }
