@@ -1,5 +1,8 @@
 pipeline {
-    agent { node { label 'master' } }
+    //agent { node { label 'master' } }
+    agent{
+        docker {image 'openjdk:8-jdk-alpine'}
+        }
     stages {
         stage('compile') { 
             steps {
